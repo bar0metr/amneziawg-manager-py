@@ -8,9 +8,12 @@ WorkingDirectory=/opt/amneziawg-manager-py
 ExecStart=/opt/amneziawg-manager-py/venv/bin/python /opt/amneziawg-manager-py/run.py
 Restart=always
 RestartSec=5
-# Optional if using dedicated user:
+
+## Optional if using dedicated user:
 # User=amneziawg
 # Group=amneziawg
+# CapabilityBoundingSet=CAP_NET_ADMIN CAP_NET_RAW
+# AmbientCapabilities=CAP_NET_ADMIN CAP_NET_RAW
 
 [Install]
 WantedBy=multi-user.target

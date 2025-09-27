@@ -146,7 +146,7 @@ chown -R amneziawg:amneziawg /opt/amneziawg-manager-py
 
 ### 2. Modify a systemd unit
 
-Uncomment **User=amneziawg** and **Group=amneziawg** in /etc/systemd/system/amneziawg-manager.service
+Uncomment **User**, **Group**, **CapabilityBoundingSet** and **AmbientCapabilities** in /etc/systemd/system/amneziawg-manager.service
 
 ```bash
 [Unit]
@@ -159,29 +159,22 @@ WorkingDirectory=/opt/amneziawg-manager-py
 ExecStart=/opt/amneziawg-manager-py/venv/bin/python /opt/amneziawg-manager-py/run.py
 Restart=always
 RestartSec=5
+
 # Optional if using dedicated user:
 User=amneziawg
 Group=amneziawg
+CapabilityBoundingSet=CAP_NET_ADMIN CAP_NET_RAW
+AmbientCapabilities=CAP_NET_ADMIN CAP_NET_RAW
 
 [Install]
 WantedBy=multi-user.target
 ```
 
-### 3. Ensure the user can execute wg or awg commands without password:
-
-```bash
-visudo
-```
-
-Add:
-```bash
-amneziawg ALL=(ALL) NOPASSWD: /usr/bin/wg, /usr/sbin/awg
-```
-
-### 4. Restart the systemd-unit
+### 3. Restart the systemd-unit
 
 ```bash
 systemctl daemon-reload
+systemctl daemon-reexec
 systemctl restart amneziawg-manager.service
 systemctl status amneziawg-manager.service
 ```
