@@ -67,6 +67,8 @@ def generate_client_config(interface: dict, peer_priv: str, peer_pub: str, ip: s
     server_endpoint = client_conf.get("server_endpoint", "127.0.0.1")
     persistent_keepalive = client_conf.get("persistent_keepalive", 15)
     backend = app_conf.get("backend", "awg")  # default to awg
+    allowed_ips = app_conf.get("allowed_ips", "0.0.0.0/0")
+    use_dns = app_conf.get("use_dns", True)
 
     awg_interface_fields = ""
     if backend.lower() == "awg":
@@ -81,14 +83,14 @@ H2 = {interface.get("H2","")}
 H3 = {interface.get("H3","")}
 H4 = {interface.get("H4","")}
 """
+    dns_line = f"DNS = {dns_list}\n" if use_dns else ""
 
     cfg = f"""[Interface]
 Address = {ip}/32
-DNS = {dns_list}
-PrivateKey = {peer_priv}{awg_interface_fields}
+{dns_line}PrivateKey = {peer_priv}{awg_interface_fields}
 
 [Peer]
-AllowedIPs = 0.0.0.0/0
+AllowedIPs = {allowed_ips}
 Endpoint = {server_endpoint}:{interface.get("ListenPort","58222")}
 PersistentKeepalive = {persistent_keepalive}
 PublicKey = {interface.get("PublicKey","")}

@@ -13,6 +13,8 @@
     "server_ip": "192.168.6.1",
     "server_endpoint": "your_(a)wg_server_ip_address",
     "dns": ["192.168.6.1", "8.8.8.8"],
-    "persistent_keepalive": 15
+    "use_dns": true,
+    "persistent_keepalive": 15,
+    "allowed_ips": "0.0.0.0/0"
   }
 }
