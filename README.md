@@ -103,18 +103,25 @@ Example: "awg0" for AmneziaWG or "wg0" for WireGuard. The service will only mana
 
 These values are applied when generating new client configurations:
 
-* network_cidr – The subnet used for assigning IPs to clients. 
-Example: "192.168.6.0/24".
+* **network_cidr** – The subnet used for assigning IPs to clients.  
+  Example: `"192.168.6.0/24"`.
 
-* server_ip – The internal VPN server IP in the above subnet. 
-Example: "192.168.6.1".
+* **server_ip** – The internal VPN server IP in the above subnet.  
+  Example: `"192.168.6.1"`.
 
-* server_endpoint – The public endpoint clients will connect to. Replace with your server’s real IP or domain.
+* **server_endpoint** – The public endpoint clients will connect to. Replace with your server’s real IP or domain.
 
-* dns – List of DNS servers for clients. 
-Example: "192.168.6.1" (local) and "8.8.8.8" (Google DNS).
+* **dns** – List of DNS servers for clients.  
+  Example: `"192.168.6.1"` (local) and `"8.8.8.8"` (Google DNS).
 
-* persistent_keepalive – Keepalive interval (in seconds) for clients to maintain connection behind NAT. Default: 15.
+* **use_dns** – Boolean flag that controls whether to include a `DNS = ...` line in the generated client configs.  
+  Example: `true` (default) to add DNS servers, `false` to omit.
+
+* **persistent_keepalive** – Keepalive interval (in seconds) for clients to maintain connection behind NAT.  
+  Default: `15`.
+
+* **allowed_ips** – Which IP ranges should be routed through the VPN for the client.  
+  Example: `"0.0.0.0/0"` to route all traffic, or `"192.168.6.0/24"` for only internal VPN traffic.
 
 ### 5. Start the service
 
