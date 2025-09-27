@@ -1,5 +1,5 @@
 [Unit]
-Description=AmneziaWG\Wireguard Manager FastAPI Service
+Description=AmneziaWG/WireGuard Manager FastAPI Service
 After=network.target
 
 [Service]
@@ -8,6 +8,9 @@ WorkingDirectory=/opt/amneziawg-manager-py
 ExecStart=/opt/amneziawg-manager-py/venv/bin/python /opt/amneziawg-manager-py/run.py
 Restart=always
 RestartSec=5
+# Optional if using dedicated user:
+# User=amneziawg
+# Group=amneziawg
 
 [Install]
 WantedBy=multi-user.target
