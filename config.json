@@ -1,0 +1,18 @@
+{
+  "app": {
+    "host": "127.0.0.1",
+    "port": 6688,
+    "reload": true,
+    "peers_file": "data/peers.json",
+    "log_level": "INFO",
+    "backend": "awg",
+    "interface": "awg0"
+  },
+  "client_defaults": {
+    "network_cidr": "192.168.6.0/24",
+    "server_ip": "192.168.6.1",
+    "server_endpoint": "your_(a)wg_server_ip_address",
+    "dns": ["192.168.6.1", "8.8.8.8"],
+    "persistent_keepalive": 15
+  }
+}

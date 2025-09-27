@@ -1,0 +1,134 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+h1, h2 {
+    color: #333;
+}
+
+form div {
+    margin-bottom: 10px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+table th, table td {
+    border: 1px solid #888;
+    padding: 6px;
+    text-align: left;
+}
+
+button {
+    padding: 5px 10px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+textarea {
+    width: 100%;
+    font-family: monospace;
+    font-size: 13px;
+}
+
+#previewBox {
+    margin-bottom: 20px;
+}
+
+#previewButtons {
+    margin-top: 10px;
+}
+
+#qrBox {
+    margin-top: 12px;
+}
+
+#qrImage {
+    max-width: 320px;
+    border: 1px solid #ddd;
+    padding: 6px;
+}
+
+code {
+    word-break: break-all;
+    font-size: 12px;
+}
+
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 999;
+}
+
+.modal-window {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    border: 1px solid #888;
+    padding: 20px;
+    z-index: 1000;
+}
+
+.modal-window textarea {
+    width: 100%;
+    font-family: monospace;
+    font-size: 13px;
+}
+
+.modal-window button {
+    margin-top: 10px;
+    margin-right: 10px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.modal-window img {
+    max-width: 300px;
+    margin-top: 10px;
+}
+
+.status-online {
+    background-color: green;
+    color: white;
+    padding: 6px;
+    border-radius: 4px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.status-offline {
+    background-color: red;
+    color: white;
+    padding: 6px;
+    border-radius: 4px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.toast-message {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0,0,0,0.85);
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 14px;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+.toast-message.show {
+    opacity: 1;
+}
