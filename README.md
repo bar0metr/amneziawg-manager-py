@@ -10,6 +10,16 @@ It allows you to:
 - Support multiple interfaces and backends (AWG/WG)
 
 ---
+## System Requirements
+
+* Linux =)
+* Python >= 3.9
+* wireguard-tools package (for Wireguard) or amneziawg-tools package (for AmneziaWG)
+* Pyrhon (pip) packages:
+  * fastapi
+  * uvicorn
+  * jinja2
+  * qrcode[pil]
 
 ## Installation
 
@@ -115,19 +125,19 @@ systemctl status amneziawg-manager.service
 
 ---
 
-### Recommendations:
+## Recommendations:
 It is highly recommended to bind the service to the localhost and provide access via Nginx (protected with authentication).
 
 Also, as mentioned earlier, you can ensure the service runs under a limited user. To do this, you need to:
 
-#### 1. Create a user and grant the necessary rights to directories
+### 1. Create a user and grant the necessary rights to directories
 
 ```bash
 useradd -r -s /bin/false amneziawg
 chown -R amneziawg:amneziawg /opt/amneziawg-manager-py
 ```
 
-#### 2. Modify a systemd unit
+### 2. Modify a systemd unit
 
 Uncomment **User=amneziawg** and **Group=amneziawg** in /etc/systemd/system/amneziawg-manager.service
 
@@ -150,7 +160,7 @@ Group=amneziawg
 WantedBy=multi-user.target
 ```
 
-#### 3. Ensure the user can execute wg or awg commands without password:
+### 3. Ensure the user can execute wg or awg commands without password:
 
 ```bash
 visudo
@@ -161,7 +171,7 @@ Add:
 amneziawg ALL=(ALL) NOPASSWD: /usr/bin/wg, /usr/sbin/awg
 ```
 
-#### 4. Restart the systemd-unit
+### 4. Restart the systemd-unit
 
 ```bash
 systemctl daemon-reload
