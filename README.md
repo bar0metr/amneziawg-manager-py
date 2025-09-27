@@ -78,25 +78,25 @@ The configuration file controls both the **backend VPN interface** and default c
 
 #### app section
 
-* host – IP address where the FastAPI web server will bind.
+* **host** – IP address where the FastAPI web server will bind.
 Example: "127.0.0.1" means it only listens on localhost.
 
-* port – Port for the web server. Example: 6688.
+* **port** – Port for the web server. Example: 6688.
 
-* reload – Boolean flag to enable auto-reloading during development. Useful when editing code.
+* **reload** – Boolean flag to enable auto-reloading during development. Useful when editing code.
 
-* peers_file – Path to the JSON file storing all peers. Default is "data/peers.json". The service must have write access to this file.
+* **peers_file** – Path to the JSON file storing all peers. Default is "data/peers.json". The service must have write access to this file.
 
-* log_level – Logging level for the uvicorn service. 
+* **log_level** – Logging level for the uvicorn service. 
 Common values: "DEBUG", "INFO", "WARNING", "ERROR".
 
-* backend – Which VPN backend to use. Can be:
+* **backend** – Which VPN backend to use. Can be:
 
 * * "awg" → AmneziaWG
 
 * * "wg" → WireGuard
 
-* interface – VPN interface name associated with the backend. 
+* **interface** – VPN interface name associated with the backend. 
 Example: "awg0" for AmneziaWG or "wg0" for WireGuard. The service will only manage this specific interface.
 
 #### client_defaults section
