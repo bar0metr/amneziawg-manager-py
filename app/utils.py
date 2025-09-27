@@ -67,8 +67,8 @@ def generate_client_config(interface: dict, peer_priv: str, peer_pub: str, ip: s
     server_endpoint = client_conf.get("server_endpoint", "127.0.0.1")
     persistent_keepalive = client_conf.get("persistent_keepalive", 15)
     backend = app_conf.get("backend", "awg")  # default to awg
-    allowed_ips = app_conf.get("allowed_ips", "0.0.0.0/0")
-    use_dns = app_conf.get("use_dns", True)
+    allowed_ips = client_conf.get("allowed_ips", "0.0.0.0/0")
+    use_dns = client_conf.get("use_dns", True)
 
     awg_interface_fields = ""
     if backend.lower() == "awg":
