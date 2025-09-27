@@ -123,8 +123,8 @@ Also, as mentioned earlier, you can ensure the service runs under a limited user
 #### 1. Create a user and grant the necessary rights to directories
 
 ```bash
-sudo useradd -r -s /bin/false amneziawg
-sudo chown -R amneziawg:amneziawg /opt/amneziawg-manager-py
+useradd -r -s /bin/false amneziawg
+chown -R amneziawg:amneziawg /opt/amneziawg-manager-py
 ```
 
 #### 2. Modify a systemd unit
@@ -153,7 +153,7 @@ WantedBy=multi-user.target
 #### 3. Ensure the user can execute wg or awg commands without password:
 
 ```bash
-sudo visudo
+visudo
 ```
 
 Add:
